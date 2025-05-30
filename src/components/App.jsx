@@ -17,10 +17,30 @@ function App() {
   const [desc, setDesc] = useState("");
   const [autor, setAutor] = useState("");
   const [job, setJob] = useState("");
-  const [image, setImage] = useState("");
-  const [photo, setPhoto] = useState("");
+  /*const [image, setImage] = useState("");
+  const [photo, setPhoto] = useState("");*/
 
-  const handleInputName = (ev) => {
+  const changeStates = (field, value) => {
+    if (field === "name") {
+      setName(value);
+    } else if (field === "slogan") {
+      setSlogan(value);
+    } else if (field === "technologies") {
+      setTechnologies(value);
+    } else if (field === "repo") {
+      setRepo(value);
+    } else if (field === "demo") {
+      setDemo(value);
+    } else if (field === "desc") {
+      setDesc(value);
+    } else if (field === "autor") {
+      setAutor(value);
+    } else if (field === "job") {
+      setJob(value);
+    }
+  };
+
+  /* const handleInputName = (ev) => {
     setName(ev.target.value);
   };
   const handleInputSlogan = (ev) => {
@@ -44,7 +64,7 @@ function App() {
   const handleInputJob = (ev) => {
     setJob(ev.target.value);
   };
-
+*/
   return (
     <div className="container">
       <Header iconLaptop={iconLaptop} adaLogo={adaLogo} />
@@ -61,9 +81,7 @@ function App() {
           demo={demo}
           repo={repo}
         />
-        <Form />
-
-        {/* PENDIENTE LAS FUNCIONES */}
+        <Form changeStates={changeStates} />
       </main>
       <Footer adaLogo={adaLogo} />
     </div>

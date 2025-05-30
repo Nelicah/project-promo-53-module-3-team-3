@@ -1,6 +1,6 @@
 import CardPreview from "./CardPreview";
 
-function Preview() {
+function Preview(props) {
   return (
     <section className="preview">
       <div className="projectImage"></div>
@@ -11,7 +11,16 @@ function Preview() {
           </span>
         </h2>
 
-        <CardPreview />
+        <CardPreview
+          jobs={props.job}
+          autor={props.autor}
+          name={props.name}
+          slogan={props.slogan}
+          desc={props.desc}
+          technologies={props.technologies}
+          demo={props.demo}
+          repo={props.repo}
+        />
       </article>
     </section>
   );
