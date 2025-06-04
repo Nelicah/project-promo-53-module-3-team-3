@@ -12,7 +12,7 @@ function Preview(props) {
         </h2>
 
         <CardPreview
-          jobs={props.job}
+          job={props.job}
           autor={props.autor}
           name={props.name}
           slogan={props.slogan}
@@ -20,7 +20,11 @@ function Preview(props) {
           technologies={props.technologies}
           demo={props.demo}
           repo={props.repo}
+          cardInfo={props.cardInfo}
         />
+        <a className="link" href={props.cardInfo} target="_blank">
+          {props.cardInfo}
+        </a>
       </article>
     </section>
   );

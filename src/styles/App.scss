@@ -36,6 +36,10 @@
   color: var(--color-white);
 }
 
+.link {
+  padding: 1rem;
+}
+
 @media screen and (min-width: 420px) {
   :root {
     font-size: 12px;

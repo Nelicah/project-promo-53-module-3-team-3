@@ -17,8 +17,8 @@ function App() {
   const [desc, setDesc] = useState("");
   const [autor, setAutor] = useState("");
   const [job, setJob] = useState("");
-  /*const [image, setImage] = useState("");
-  const [photo, setPhoto] = useState("");*/
+
+  const [cardInfo, setCardInfo] = useState("");
 
   const changeStates = (field, value) => {
     if (field === "name") {
@@ -40,31 +40,54 @@ function App() {
     }
   };
 
-  /* const handleInputName = (ev) => {
-    setName(ev.target.value);
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+
+    // const objToSend = {
+    //   name: name,
+    //   slogan: slogan,
+    //   technologies: technologies,
+    //   repo: repo,
+    //   demo: demo,
+    //   desc: desc,
+    //   autor: autor,
+    //   job: job,
+    //  photo: "https://mi-sitio.com/foto.jpg",
+    //  image: "https://mi-sitio.com/imagen-proyecto.jpg",
+    // };
+
+    fetch("https://dev.adalab.es/api/projectCard", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: name,
+        slogan: slogan,
+        technologies: technologies,
+        demo: demo,
+        repo: repo,
+        desc: desc,
+        author: autor,
+        job: job,
+        photo:
+          "https://media.istockphoto.com/id/513133900/es/foto/oro-retriever-sentado-en-frente-de-un-fondo-blanco.jpg?s=612x612&w=0&k=20&c=0lRWImB8Y4p6X6YGt06c6q8I3AqBgKD-OGQxjLCI5EY=",
+        image:
+          "https://plus.unsplash.com/premium_photo-1694819488591-a43907d1c5cc?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVycm98ZW58MHx8MHx8fDA%3D",
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("URL de la tarjeta del proyecto:", data.cardURL);
+        setCardInfo(data.cardURL);
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error al generar la tarjeta del proyecto:", error);
+      });
+    return;
   };
-  const handleInputSlogan = (ev) => {
-    setSlogan(ev.target.value);
-  };
-  const handleInputTechnologies = (ev) => {
-    setTechnologies(ev.target.value);
-  };
-  const handleInputRepo = (ev) => {
-    setRepo(ev.target.value);
-  };
-  const handleInputDemo = (ev) => {
-    setDemo(ev.target.value);
-  };
-  const handleInputDesc = (ev) => {
-    setDesc(ev.target.value);
-  };
-  const handleInputAutor = (ev) => {
-    setAutor(ev.target.value);
-  };
-  const handleInputJob = (ev) => {
-    setJob(ev.target.value);
-  };
-*/
+
   return (
     <div className="container">
       <Header iconLaptop={iconLaptop} adaLogo={adaLogo} />
@@ -80,8 +103,9 @@ function App() {
           technologies={technologies}
           demo={demo}
           repo={repo}
+          cardInfo={cardInfo}
         />
-        <Form changeStates={changeStates} />
+        <Form changeStates={changeStates} handleSubmit={handleSubmit} />
       </main>
       <Footer adaLogo={adaLogo} />
     </div>

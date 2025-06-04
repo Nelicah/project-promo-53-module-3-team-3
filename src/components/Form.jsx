@@ -87,7 +87,9 @@ function Form(props) {
       <BtnFiles />
 
       <fieldset className="addForm__group--upload">
-        <button className="button--large">Guardar proyecto</button>
+        <button className="button--large" onClick={props.handleSubmit}>
+          Guardar proyecto
+        </button>
       </fieldset>
     </form>
   );
