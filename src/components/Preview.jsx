@@ -1,6 +1,6 @@
 import CardPreview from "./CardPreview";
 
-function Preview(props) {
+function Preview({ objToSend, cardInfo }) {
   return (
     <section className="preview">
       <div className="projectImage"></div>
@@ -11,19 +11,9 @@ function Preview(props) {
           </span>
         </h2>
 
-        <CardPreview
-          job={props.job}
-          autor={props.autor}
-          name={props.name}
-          slogan={props.slogan}
-          desc={props.desc}
-          technologies={props.technologies}
-          demo={props.demo}
-          repo={props.repo}
-          cardInfo={props.cardInfo}
-        />
-        <a className="link" href={props.cardInfo} target="_blank">
-          {props.cardInfo}
+        <CardPreview objToSend={objToSend} cardInfo={cardInfo} />
+        <a className="link" href={cardInfo} target="_blank">
+          {cardInfo}
         </a>
       </article>
     </section>
