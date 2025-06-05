@@ -39,26 +39,13 @@ function App() {
 
   const changeStates = (field, value) => {
     setObjToSend({ ...objToSend, [field]: value });
-    if (field === "name") {
-      //setName(value);
-      setObjToSend({ ...objToSend, name: value });
-    } else if (field === "slogan") {
-      //setSlogan(value);
-      setObjToSend({ ...objToSend, slogan: value });
-    } else if (field === "technologies") {
-      //setTechnologies(value);
-    } else if (field === "repo") {
-      //setRepo(value);
-    } else if (field === "demo") {
-      //setDemo(value);
-    } else if (field === "desc") {
-      //setDesc(value);
-    } else if (field === "autor") {
-      //setAutor(value);
-    } else if (field === "job") {
-      //setJob(value);
-    }
   };
+
+  localStorage.setItem("newProject", JSON.stringify(objToSend));
+
+  const [newProject, setNewProject] = useState(
+    JSON.parse(localStorage.getItem("newProject"))
+  );
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
@@ -79,6 +66,7 @@ function App() {
       .catch((error) => {
         console.error("Error al generar la tarjeta del proyecto:", error);
       });
+
     return;
   };
 
