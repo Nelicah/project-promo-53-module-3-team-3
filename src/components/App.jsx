@@ -30,12 +30,14 @@ function App() {
     autor: "",
     job: "",
     photo: "",
-    image:
-      "https://plus.unsplash.com/premium_photo-1694819488591-a43907d1c5cc?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVycm98ZW58MHx8MHx8fDA%3D",
+    image: "",
   });
 
   const changesPhoto = (uploadedPhoto) => {
     setObjToSend({ ...objToSend, photo: uploadedPhoto });
+  };
+  const changesImage = (uploadedPhoto) => {
+    setObjToSend({ ...objToSend, image: uploadedPhoto });
   };
 
   const [cardInfo, setCardInfo] = useState("");
@@ -79,11 +81,16 @@ function App() {
 
       <main className="main">
         <Hero />
-        <Preview objToSend={objToSend} cardInfo={cardInfo} />
+        <Preview
+          objToSend={objToSend}
+          cardInfo={cardInfo}
+          changesImage={changesImage}
+        />
         <Form
           changeStates={changeStates}
           handleSubmit={handleSubmit}
           changesPhoto={changesPhoto}
+          changesImage={changesImage}
         />
       </main>
       <Footer adaLogo={adaLogo} />

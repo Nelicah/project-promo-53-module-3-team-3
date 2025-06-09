@@ -2,7 +2,12 @@ function CardPreview({ objToSend }) {
   return (
     <>
       <div className="card__author">
-        <div className="card__authorPhoto"></div>
+        <div
+          className="card__authorPhoto"
+          style={{
+            backgroundImage: objToSend.image ? `url(${objToSend.image})` : null,
+          }}
+        ></div>
         <p className="card__job">{objToSend.job || "Full stack Developer"} </p>
         <h3 className="card__name">
           {" "}

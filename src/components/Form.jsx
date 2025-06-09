@@ -86,7 +86,7 @@ function Form(props) {
       </fieldset>
 
       <GetAvatar updateAvatar={props.changesPhoto} text="Subir foto proyecto" />
-      <GetAvatar updateAvatar={0} text="Subir foto autora" />
+      <GetAvatar updateAvatar={props.changesImage} text="Subir foto autora" />
       {/* 
                <label className="button">
               Subir foto del proyecto
