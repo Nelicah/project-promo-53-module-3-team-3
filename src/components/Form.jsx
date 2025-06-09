@@ -1,4 +1,4 @@
-import BtnFiles from "./BtnFiles";
+import GetAvatar from "./GetAvatar";
 
 function Form(props) {
   const handleInput = (ev) => {
@@ -84,7 +84,19 @@ function Form(props) {
           onChange={handleInput}
         />
       </fieldset>
-      <BtnFiles />
+
+      <GetAvatar updateAvatar={props.changesPhoto} text="Subir foto proyecto" />
+      <GetAvatar updateAvatar={0} text="Subir foto autora" />
+      {/* 
+               <label className="button">
+              Subir foto del proyecto
+              <input className="addForm__hidden" type="file" />
+            </label>
+            <label className="button">
+              Subir foto de la autora
+              <input className="addForm__hidden" type="file" />
+            </label>
+      */}
 
       <fieldset className="addForm__group--upload">
         <button className="button--large" onClick={props.handleSubmit}>

@@ -29,11 +29,14 @@ function App() {
     desc: "",
     autor: "",
     job: "",
-    photo:
-      "https://media.istockphoto.com/id/513133900/es/foto/oro-retriever-sentado-en-frente-de-un-fondo-blanco.jpg?s=612x612&w=0&k=20&c=0lRWImB8Y4p6X6YGt06c6q8I3AqBgKD-OGQxjLCI5EY=",
+    photo: "",
     image:
       "https://plus.unsplash.com/premium_photo-1694819488591-a43907d1c5cc?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVycm98ZW58MHx8MHx8fDA%3D",
   });
+
+  const changesPhoto = (uploadedPhoto) => {
+    setObjToSend({ ...objToSend, photo: uploadedPhoto });
+  };
 
   const [cardInfo, setCardInfo] = useState("");
 
@@ -77,7 +80,11 @@ function App() {
       <main className="main">
         <Hero />
         <Preview objToSend={objToSend} cardInfo={cardInfo} />
-        <Form changeStates={changeStates} handleSubmit={handleSubmit} />
+        <Form
+          changeStates={changeStates}
+          handleSubmit={handleSubmit}
+          changesPhoto={changesPhoto}
+        />
       </main>
       <Footer adaLogo={adaLogo} />
     </div>

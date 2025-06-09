@@ -3,7 +3,10 @@ import CardPreview from "./CardPreview";
 function Preview({ objToSend, cardInfo }) {
   return (
     <section className="preview">
-      <div className="projectImage"></div>
+      <div
+        className="projectImage"
+        // style={{ backgroundImage: `url(${photo})` }}
+      ></div>
       <article className="card">
         <h2 className="card__projectTitle">
           <span className="card__projectTitle--text">
